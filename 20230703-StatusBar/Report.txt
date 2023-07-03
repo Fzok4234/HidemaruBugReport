@@ -1,0 +1,11 @@
+毎度お世話になっております。Fzok4234 です。
+
+
+さて、ステータスバーの各カラム幅についてですが、これを文字列が欠けないようにサイズ変更を
+したいのですが、操作方法が分かりません。
+
+実際、Windows の設定から DPI を 150 % にすると
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230703-StatusBar/Image.png
+に示す画像のように表示文字列が欠けて見づらいです。
+
+
