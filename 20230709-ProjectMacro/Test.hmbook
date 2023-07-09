@@ -1,0 +1,4 @@
+//type=project
+"mac:message @ + currentmacrodirectory + @ ;",name="currentmacrodirectory"
+"mac:message @ + currentmacrofilename + @ ;",name="currentmacrofilename"
+"mac:message @ + currentmacrobasename + @ ;",name="currentmacrobasename"
