@@ -1,0 +1,22 @@
+> 現在読み込んでいるプロジェクトファイルのフルパスは取得できるので、そこから切り出せば
+> いいのでは。
+
+確かに、プロジェクトファイルのパスは HmExplorerPane.dll の GetProject 関数で取得
+できました。試験的にマクロ
+https://github.com/Fzok4234/HidemaruMacro/blob/master/OpenProjectItem/src/OpenProjectItem.mac
+を作って %APPDATA%\Hidemaruo\Hidemaru\Macro ディレクトリへインストールして、
+テストプロジェクト
+https://github.com/Fzok4234/HidemaruMacro/tree/master/OpenProjectItem/test
+のような記述で動作するようにしてみました。
+
+ただ、問題点が無いわけではなく
+　1. プロジェクトの項目の右クリックメニューに「コンテキストメニュー(X)」の項目を
+　   出せないので項目ファイル特有のコマンドを実行できない。
+　2. 項目ファイルを openfile 文で開く実装のため自動実行マクロが実行できない。
+というどうしても避けられない欠点があります。
+
+やはり .hmbook の書式を拡張して
+{ 文字コード, 改行コード, BOM の有無 } 及び 各種読み取り専用指定 ( /b || /r || /bb || /rr ) を
+指定できるように改良してもらった方がよいと思います。
+
+
