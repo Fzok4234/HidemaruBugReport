@@ -1,0 +1,10 @@
+//type=project
+"/rr /fu8-lf-nobom Aaaa.txt",name="Relative,WithQuote,TwoOptions"
+"/bb /fs-crlf Bbbb.cmd",name="Relative,NoQuote,TwoOptions"
+"/fu8-lf-nobom Aaaa.txt",name="Relative,WithQuote,OneOption"
+"/fs-crlf Bbbb.cmd",name="Relative,NoQuote,OneOption"
+"/rr /fu8-lf-nobom C:\a a a.txt",name="Absolute,WithQuote,TwoOptions"
+"/bb /fs-crlf C:\a a a.cmd",name="Absolute,NoQuote,TwoOptions"
+"/fu8-lf-nobom C:\a a a.txt",name="Absolute,WithQuote,OneOption"
+"/fs-crlf C:\a a a.cmd",name="Absolute,NoQuote,OneOption"
+"/fu32b-crlf-nobom C:\Ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",name="VeryLongName"
