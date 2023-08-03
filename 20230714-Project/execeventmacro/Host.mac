@@ -1,0 +1,8 @@
+#event  = 0 ;
+while( #event < 12 ) {
+    execeventmacro #event   ;
+    #event  = #event + 1    ;
+}
+
+endmacro @""    ;
+

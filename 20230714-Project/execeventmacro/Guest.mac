@@ -1,0 +1,4 @@
+debuginfo 2 ;
+debuginfo str( event ) + "\U0000000A"   ;
+endmacro @""    ;
+
