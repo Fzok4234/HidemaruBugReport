@@ -1,0 +1,56 @@
+> V9.25βでは、execeventmacroでやる方法を追加してみています。
+> 設定のON/OFFやマクロファイル名も見て、event値も変わって実行します。
+> 
+> 例：
+> $a=@"c:\folder\test.txt";
+> #f=findhidemaru($a);
+> if(#f>=0){
+>   setactivehidemaru #f;
+>   execeventmacro 8;//アクティブ切り替え後
+> } else if(filename!=tolower($a)){
+>   openfile "/m3 /rr "+$a;
+>   execeventmacro 1;//ファイルを開いた直後
+> }
+
+9.25β6 にアップデートした上で、execeventmacro 文の動作確認を行いましたが、正しく
+動作しませんでした。
+
+まず、自動起動マクロ
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/Guest.mac
+( ローカル上のパスは "I:\apparchives\share\document\text\Hidemaru\Bug\20230714-Project\execeventmacro\Guest.mac" )
+を、
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/AutoRunSample.png
+のように「ファイルを開いた直後」として登録してから、これを execeventmacro で
+呼び出すためのホストマクロ
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/Host.mac
+を実行いたしました。
+
+すると
+---------------------------
+エラー
+---------------------------
+ファイルへのアクセスでエラーが起きました。
+エラーコード = 123
+ファイル名 = C:\Users\********\AppData\Roaming\Hidemaruo\Hidemaru\Macro\I:\apparchives\share\document\text\Hidemaru\Bug\20230714-Project\execeventmacro\Guest.mac
+エラーコード 123 の意味：ファイル名、ディレクトリ名、またはボリューム ラベルの構文が間違っています。
+
+
+
+エラー箇所の内容（変換した内容）:
+	#event = #event + 1;
+
+	}
+
+	endmacro "";
+
+
+---------------------------
+OK   
+---------------------------
+というエラーが発生してしまいました。
+
+一応、この状態で任意のファイルを開くとアウトプット枠に正しく
+1
+と出力されます。
+
+
