@@ -1,0 +1,57 @@
+> V9.25βでウィンドウの親子関係の構成を変えてみていて、その影響で違っていました。
+> 次のβ版で修正させていただきます。
+
+9.25β11 にて動作確認を行いました。確かにハングアップチェッカーで 1 つのタブを強制終了しただけで
+全てのタブが勝手に強制終了することは無くなりました。しかし、まだ動作におかしなところがあります。
+
+再現方法として、まず
+https://github.com/Fzok4234/HidemaruBugReport/tree/master/20230813-HmHang/Test
+ディレクトリ内の 0.txt、1.txt、～、7.txt を以下のコマンドで順に開きます。
+
+hidemaru /fu8-nobom-lf 0.txt
+hidemaru /fu8-nobom-lf 1.txt
+hidemaru /fu8-nobom-lf 2.txt
+hidemaru /fu8-nobom-lf 3.txt
+hidemaru /fu8-nobom-lf 4.txt
+hidemaru /fu8-nobom-lf 5.txt
+hidemaru /fu8-nobom-lf 6.txt
+hidemaru /fu8-nobom-lf 7.txt
+
+このとき、タブの状態は
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230813-HmHang/Test/Before.png
+のようになっています。
+
+　　　　　　　　　　　　　　　　↓
+
+次に、ハングアップチェッカーを起動して 7.txt のタブのみを強制終了させます。
+
+　　　　　　　　　　　　　　　　↓
+
+その後直ちに秀丸エディタの右上の × をクリックして、「タブを全て閉じていいですか ?」のメッセージで
+「 OK 」をクリックして全終了させます。
+
+　　　　　　　　　　　　　　　　↓
+
+そしてその後、単純に以下のコマンド
+
+hidemaru
+
+で秀丸エディタを起動させます。すると、
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230813-HmHang/Test/After.png
+のように
+
+0.txt
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+
+の 6 つのファイルが勝手に開いてしまいます。
+
+もちろん、「動作環境」の状態は
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230813-HmHang/Test/Config.png
+となっており、勝手にデスクトップ保存 / 復元が実行されることは無いはずです。
+
+
+
