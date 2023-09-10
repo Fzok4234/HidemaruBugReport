@@ -1,0 +1,26 @@
+9.25β11 にて execeventmacro の動作確認を行いましたが、まだ動作がおかしいです。
+
+テスト用の自動起動マクロ
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/Guest.mac
+を、
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/AutoRun-Guest-0ms.png
+のように全てのイベントに登録した上で、execeventmacro で全イベントをたたくマクロ
+https://github.com/Fzok4234/HidemaruBugReport/blob/master/20230714-Project/execeventmacro/Host.mac
+を実行したところ、出力は以下のようになりました。
+
+Start event 0.
+End event 0.
+Start event 1.
+1
+End event 1.
+Start event 2.
+
+即ち、ループの途中で #event が 2 のときに
+execeventmacro #event   ;
+を呼び出した時点で Host.mac が勝手に終了してしまっています。
+
+このテストの次の段階として、「編集後タイマー」、「カーソル移動後タイマー」及び
+「アクティブ切り替え後」で設定した遅延タイマーが execeventmacro から呼び出した場合でもちゃんと
+動作するかどうかのテストが控えているのですが、その前段階で躓いてしまっています。
+
+
